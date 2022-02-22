@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family:'Poppins';
+}
+body{
+	width:100%;
+	min-height:100vh;
+	background:#111;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.container{
+	position:relative;
+	background:#222;
+	width:700px;
+	height:400px;
+}
+.container .clip{
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	transition:.5s;
+}
+.container .clip.clip1{
+	background:url(bg.jpeg);
+	background-size:cover;
+	-webkit-clip-path: polygon(0 0,55% 0%, 20% 100%, 0 100%);
+}
+.container .clip.clip2{
+	background:url(bg2.jpeg);
+	background-size:cover;
+	-webkit-clip-path: polygon(55% 0,100% 0%, 45% 100%, 20% 100%);
+}
+.container .clip.clip3{
+	background:url(bg3.jpeg);
+	background-size:cover;
+	-webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 45% 100%);
+}
+.container:hover .clip{
+	-webkit-clip-path:polygon(100% 0, 100% 0%, 100% 100%, 100% 100%);
+}
+.container .clip:hover{
+	-webkit-clip-path:polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+}
+.content{
+	position:absolute;
+	bottom:-1000;
+	left:0;
+	width:70%;
+	background:white;
+	padding:20px;
+	transition:0.5s;
+	opacity:0;
+}
+.clip:hover .content{
+	bottom:0;
+	opacity:1;
+}
